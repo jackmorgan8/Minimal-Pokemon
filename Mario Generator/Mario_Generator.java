@@ -13,49 +13,51 @@ public class Mario_Generator{
 		String[] piece7 = new String[8];
 		String[] piece8 = new String[8];
 		String[] piece9 = new String[8];
+		String[] piece10 = new String[8];
+		String[] piece11 = new String[8];
 		/*
 		 *Add new pieces here
 		 *Make sure it has a unique piece number
 		 */
-		String[] pieceEnd = new String[8];
+		String[] pieceMiddle = new String[8]; //Creates the middle piece with a flag
+		String[] pieceEnd = new String[8]; //Creates the end piece
 		/*
 		 *Each piece is 8 lines high and is typically 12 characters long, but length can be as long or short as you want (each layer must have the same character length)
 		 *A typical piece has 4 lines of ground layers and 4 lines of sky layers, but as long as all 8 layers, are present, your piece will work
 		 */
-		for(int i=7; i>=4; i--){
-			piece2[i]="OOOOOOOOOOOO";
+		for(int i=7; i>=4; i--){ //Fills in the bottom 4 layers, i is used to fill specific layers
+			piece1[i]="OOOOO  OOOOO";
 			piece3[i]="OOOOOOOOOOOO";
 			piece4[i]="OOOOOOOOOOOO";
 			piece5[i]="OOOOOOOOOOOO";
 			piece6[i]="OOOOOOOOOOOO";
+			piece7[i]="OOOO    OOOO";
 			piece9[i]="OOOOOOOOOOOO";
 			/*
 			 *If your new piece has 4 ground layers, add it here
 			 */
-			pieceEnd[i]="OOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+			pieceMiddle[i]="OO";
+			pieceEnd[i]="OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
 		}
-		for(int i=0; i<4; i++){
+		for(int i=0; i<4; i++){ //Fills the top 4 layers with blank strings
+			piece2[i]="            ";
 			piece3[i]="            ";
 			piece7[i]="            ";
 			piece8[i]="            ";
+			piece10[i]="            ";
+			piece11[i]="            ";
 			/*
 			 *If your piece has the top 4 layers empty, add it here
 			 */
 		}
-		for(int i=7; i>=4; i--){
-			piece1[i]="OOOOO  OOOOO";
-		}
-		for(int i=7; i>=4; i--){
-			piece7[i]="OOOO    OOOO";
-		}
-		piece1[0]="    O  O    ";
+		piece1[0]="    O  O    "; //These lines fill in the remaining layers with more piece-specific parts
 		piece1[1]="   OO  OO   ";
 		piece1[2]="  OOO  OOO  ";
 		piece1[3]=" OOOO  OOOO ";
-		piece2[0]="    O  O    ";
-		piece2[1]="   OO  OO   ";
-		piece2[2]="  OOO  OOO  ";
-		piece2[3]=" OOOO  OOOO ";
+		piece2[4]=" O          ";
+		piece2[5]=" OO    |==| ";
+		piece2[6]=" OOO    ||  ";
+		piece2[7]=" OOOO  OOOO ";
 		piece4[0]="     ??     ";
 		piece4[1]="            ";
 		piece4[2]=" ??  ++  ?? ";
@@ -76,6 +78,14 @@ public class Mario_Generator{
 		piece9[1]="    |==|    ";
 		piece9[2]="     ||     ";
 		piece9[3]="     ||     ";
+		piece10[4]="     |==|OOO";
+		piece10[5]="      || OOO";
+		piece10[6]="OO    OOOOOO";
+		piece10[7]="OO    OOOOOO";
+		piece11[4]="+++++++++++O";
+		piece11[5]="           O";
+		piece11[6]="           O";
+		piece11[7]="           O";
 		/*
 		 *Specify the remaining layers of your piece here
 		 *
@@ -83,24 +93,28 @@ public class Mario_Generator{
 		 *
 		 *If there are unspecified layers, "null" will appear on the output
 		 */
-		pieceEnd[0]="   O     |>   +=======+    ";
-		pieceEnd[1]="  OO     |    |   _   |    ";
-		pieceEnd[2]=" OOO     |   +-+ / \\ +-+    ";
-		pieceEnd[3]="OOOO     |   | | | | | |    ";
-		int numPieces = 9; //If you have changed the number of pieces available, modify this number to correspond to the highest piece number
-		int[] level = new int[length];
-		for(int i=1; i<length-1; i++){ 
-			level[i]=(int)(Math.random()*numPieces);
+		pieceMiddle[0]="  ";
+		pieceMiddle[1]="  ";
+		pieceMiddle[2]="|>";
+		pieceMiddle[3]="| ";
+		pieceEnd[0]="       O     |>   +=======+    ";
+		pieceEnd[1]="      OO     |    |   _   |    ";
+		pieceEnd[2]="     OOO     |   +-+ / \\ +-+    ";
+		pieceEnd[3]="    OOOO     |   | | | | | |    ";
+		int numPieces = 11; //If you have changed the number of pieces available, modify this number to correspond to the highest piece number
+		int[] level = new int[length]; //Creates an integer array the size of your level length
+		for(int i=1; i<length-2; i++){ //Fills array with random numbers
+			level[i]=(int)(Math.random()*numPieces); //Comes up with random integers from 1-numPieces
 		}
-		level[0]=2;
-		level[length-1]=-1;
-		System.out.println();
-		System.out.println();
-		for(int i=0; i<8; i++){
-			for(int j=0; j<length; j++){
-				switch(level[j]){
-					case 0: System.out.print(piece1[i]); break;
-					case 1: System.out.print(piece2[i]); break;
+		level[0]=2; //The first integer in the array is 2 so the level always starts on a flat plane
+		level[length/2]=998; //Makes the piece halfway through the level a checkpoint flag
+		level[length-1]=999; //Makes the last piece an endpoint with a flag and castle
+		System.out.println("\n");
+		for(int i=0; i<8; i++){ //Counts up by layers, printing each object from top to bottom
+			for(int j=0; j<length; j++){ //For every layer, this loop runs through the level array
+				switch(level[j]){ //Checks the number at j in the level array
+					case 0: System.out.print(piece1[i]); break; //For every possible number generated, there is a corresponding piece
+					case 1: System.out.print(piece2[i]); break; //The layer the top loop is currently on is printed
 					case 2: System.out.print(piece3[i]); break;
 					case 3: System.out.print(piece4[i]); break;
 					case 4: System.out.print(piece5[i]); break;
@@ -108,13 +122,16 @@ public class Mario_Generator{
 					case 6: System.out.print(piece7[i]); break;
 					case 7: System.out.print(piece8[i]); break;
 					case 8: System.out.print(piece9[i]); break;
+					case 9: System.out.print(piece10[i]); break;
+					case 10: System.out.print(piece11[i]); break;
 					/*
 					 *Added pieces should go here. The case number is 1 less than your piece number (ex: piece 10->case 9, piece 20->case 19)
 					 */
-					default: System.out.print(pieceEnd[i]); break;
+					case 998: System.out.print(pieceMiddle[i]); break;
+					case 999: System.out.print(pieceEnd[i]); break;
 				}
 			}
-			System.out.println();
+			System.out.println(); //After each iteration of the loop, a new line is started to change layers in the output
 		}
 	}
 }
