@@ -1,7 +1,9 @@
 import java.util.*;
+import java.io.*;
 public class Mario_Generator{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
+		System.out.println("Warning: Long levels or large custom pieces will not save properly");
 		System.out.print("How long would you like your level to be? ");
 		int length = input.nextInt();
 		String[] piece1 = new String[8]; //Initializes the strings that make up the level
@@ -132,6 +134,47 @@ public class Mario_Generator{
 				}
 			}
 			System.out.println(); //After each iteration of the loop, a new line is started to change layers in the output
+		}
+		input.nextLine();
+		while(true){
+			System.out.print("\nWould you like to export to a text file?(yes/no) ");
+			String response = input.nextLine();
+			if(response.equalsIgnoreCase("yes")){
+				break;
+			}else if(response.equalsIgnoreCase("no")){
+				System.exit(0);
+			}else{
+				continue;
+			}
+		}
+		try{
+			PrintWriter save = new PrintWriter("Mario_Level.txt", "UTF-8");
+			for(int i=0; i<8; i++){ //Counts up by layers, printing each object from top to bottom
+				for(int j=0; j<length; j++){ //For every layer, this loop runs through the level array
+					switch(level[j]){ //Checks the number at j in the level array
+						case 0: save.print(piece1[i]); break; //For every possible number generated, there is a corresponding piece
+						case 1: save.print(piece2[i]); break; //The layer the top loop is currently on is saved to a text file
+						case 2: save.print(piece3[i]); break;
+						case 3: save.print(piece4[i]); break;
+						case 4: save.print(piece5[i]); break;
+						case 5: save.print(piece6[i]); break;
+						case 6: save.print(piece7[i]); break;
+						case 7: save.print(piece8[i]); break;
+						case 8: save.print(piece9[i]); break;
+						case 9: save.print(piece10[i]); break;
+						case 10: save.print(piece11[i]); break;
+						/*
+						 *Added pieces should go here. The case number is 1 less than your piece number (ex: piece 10->case 9, piece 20->case 19)
+						 */
+						case 998: save.print(pieceMiddle[i]); break;
+						case 999: save.print(pieceEnd[i]); break;
+					}
+				}
+				save.println(); //After each iteration of the loop, a new line is started to change layers in the output
+			}
+			save.close();
+		}catch(IOException e){
+			e.printStackTrace();
 		}
 	}
 }
