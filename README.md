@@ -8,5 +8,5 @@ WIP: Recreating Pokemon Red in the command line. So far you can walk around Pall
 A cool little program that lets you walk around a maze in first person. The maze is saved as an array of 1's and 0's and the program is told what to display based on the numbers around your current place on the map
 # RPG Test
 An early build of Minimal Pokemon. Battle system is there (very simple) and you can walk around Viridian Forest
-# Space Simulator Ver. 2
-This is an updated version of an older game which I accidentally deleted (oops). I kept the world generation from the previous version but pretty much scrapped everything else. This version is slightly scaled back with simplified mechanics but bugs have been reduced considerably and it's much easier to navigate. Saving and loading games is also supported.
+# Space Simulator Ver. 3
+This is an updated version of an older game which I accidentally deleted (oops, nothing of value was lost). I kept the world generation from the previous version but pretty much scrapped everything else. This version is slightly scaled back with simplified mechanics but bugs have been reduced considerably and it's much easier to navigate. Saving and loading games is also supported.
