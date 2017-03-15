@@ -1,7 +1,7 @@
 # ASCII Dungeon
 The most playable thing I've made, this is a dungeon crawler played in the command line with random encounters, shops, keys to find and switches to be pressed. A simple party system is used, and players can pick their names and classes at the start of the game. A primitive save/load feature is also included, so players can pick up where they left off earlier. The code is a mess so I'm in the process of remaking this one from scratch (it still works though)
 # Mario Generator
-Will print a randomly generated Mario-type level to the console using 9 premade parts. New parts can be added and existing parts can be modified to make more complex levels
+Will print a randomly generated Mario-type level to the console using a handful of premade parts. New parts can be added and existing parts can be modified to make more complex levels
 # Minimal Pokemon
 WIP: Recreating Pokemon Red in the command line. So far you can walk around Pallet Town and Viridian City with more planned. Actual battling/gameplay will be added after more of the world is built
 # Psuedo-Raycaster Test
