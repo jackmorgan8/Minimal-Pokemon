@@ -9,4 +9,6 @@ A cool little program that lets you walk around a maze in first person. The maze
 # RPG Test
 An early build of Minimal Pokemon. Battle system is there (very simple) and you can walk around Viridian Forest
 # Space Simulator
-I tried to remake that old Star Trek game without actually having played it. Features a randomly generated universe (made up of 16 8x8 sectors) and an interesting battle system. Super buggy, I probably won't go back and fix this, as it was probably a bit too ambitious considering my skills (or lack thereof)
+I tried to remake that old Star Trek game without actually having played it. Features a randomly generated universe (made up of 16 8x8 sectors) and an interesting battle system. Super buggy, I probably won't go back and fix this, as it was probably a bit too ambitious considering my skills (or lack thereof). Download version 2 instead.
+# Space Simulator Ver. 2
+This is an updated version Space Simulator. I kept the world generation from the previous version but pretty much scrapped everything else. This version is slightly scaled back with simplified mechanics, but it's much less buggy, so if stability is important, go for this version. Saving is planned for the future.
