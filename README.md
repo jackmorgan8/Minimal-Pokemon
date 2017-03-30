@@ -9,4 +9,6 @@ A cool little program that lets you walk around a maze in first person. The maze
 # RPG Test
 An early build of Minimal Pokemon. Battle system is there (very simple) and you can walk around Viridian Forest
 # Space Simulator Ver. 3
-This is an updated version of an older game which I accidentally deleted (oops, nothing of value was lost). I kept the world generation from the previous version but pretty much scrapped everything else. This version is slightly scaled back with simplified mechanics but bugs have been reduced considerably and it's much easier to navigate. Saving and loading games is also supported.
+This is an updated version of an older game which I accidentally deleted (oops). I kept the world generation from the previous version but pretty much scrapped everything else. This version is slightly scaled back with simplified mechanics but bugs have been reduced considerably and it's much easier to navigate. Saving and loading games is also supported.
+# Troll Game
+Simple game where you push and pull blocks around to trap enemies and reach the exit. The flickering is a bit annoying but as the game is turn based, it doesn't affect gameplay. 
